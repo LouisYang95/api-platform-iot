@@ -52,6 +52,7 @@ xbeeAPI.parser.on("data", function (frame) {
   //on packet received, dispatch event
   //let dataReceived = String.fromCharCode.apply(null, frame.data);
   if (C.FRAME_TYPE.ZIGBEE_RECEIVE_PACKET === frame.type) {
+    console.debug(frame);
     console.log("C.FRAME_TYPE.ZIGBEE_RECEIVE_PACKET");
     let dataReceived = String.fromCharCode.apply(null, frame.data);
     console.log(">> ZIGBEE_RECEIVE_PACKET >", dataReceived);
@@ -59,17 +60,19 @@ xbeeAPI.parser.on("data", function (frame) {
   }
 
   if (C.FRAME_TYPE.NODE_IDENTIFICATION === frame.type) {
+    console.debug(frame);
     // let dataReceived = String.fromCharCode.apply(null, frame.nodeIdentifier);
     console.log("NODE_IDENTIFICATION");
     //storage.registerSensor(frame.remote64)
 
   } else if (C.FRAME_TYPE.ZIGBEE_IO_DATA_SAMPLE_RX === frame.type) {
-
+    console.debug(frame);
     console.log("ZIGBEE_IO_DATA_SAMPLE_RX")
-    console.log(frame.analogSamples.AD0)
+    // console.log(frame.analogSamples.AD0)
     //storage.registerSample(frame.remote64,frame.analogSamples.AD0 )
 
   } else if (C.FRAME_TYPE.REMOTE_COMMAND_RESPONSE === frame.type) {
+    console.debug(frame);
     console.log("REMOTE_COMMAND_RESPONSE")
   } else {
     console.debug(frame);
