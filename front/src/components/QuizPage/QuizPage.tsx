@@ -1,11 +1,11 @@
 import React from 'react';
 import { Wrapper } from './styled';
 
-interface GamePageProps {
+interface QuizPageProps {
 
 }
 
-const GamePage: React.FC<GamePageProps> = ({
+const QuizPage: React.FC<QuizPageProps> = ({
 
 }) => {
   return (
@@ -15,4 +15,4 @@ const GamePage: React.FC<GamePageProps> = ({
   );
 };
 
-export default GamePage;
+export default QuizPage;

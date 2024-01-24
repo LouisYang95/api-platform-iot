@@ -24,7 +24,8 @@ export const Wrapper = styled.div`
     margin-bottom: 20px;
   }
 
-  button {
+  a {
+    text-decoration: none;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1rem;
     padding: 10px 20px;
@@ -33,6 +34,7 @@ export const Wrapper = styled.div`
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 10px;
 
     &:hover {
       background-color: #0056b3; /* Changement de couleur au survol */

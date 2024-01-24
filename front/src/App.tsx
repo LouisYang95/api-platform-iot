@@ -1,7 +1,7 @@
 import React from 'react';
-import GamePageContainer from './components/GamePage/index';
+import GamePageContainer from './components/QuizPage/index';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePageContainer from './components/HomePage/index-h';
+import HomePageContainer from './components/HomePage';
 
 import './App.css';
 
