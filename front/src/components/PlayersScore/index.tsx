@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Wrapper } from './styled';
 import { useNavigate } from 'react-router-dom';
-import GamePage from './GamePage';
+import PlayersScore from './PlayersScore';
 
-const GamePageContainer: React.FC = () => {
+const PlayersScoreContainer: React.FC = () => {
     const [players, setPlayers] = useState<Array<{ playerName: string; playerScore: number }>>([]);
-    const numberOfPlayers = 0
+    const numberOfPlayers = 4
 
     useEffect(() => {
 
@@ -17,10 +18,16 @@ const GamePageContainer: React.FC = () => {
       }, [numberOfPlayers]);
 
   return (
-    <GamePage
-    
-    />
+      <Wrapper>
+      {players.map((player, index) => (
+        <PlayersScore
+          key={index}
+          playerName={player.playerName}
+          playerScore={player.playerScore}
+        />
+      ))}
+    </Wrapper>
   );
 };
 
-export default GamePageContainer;
+export default PlayersScoreContainer;

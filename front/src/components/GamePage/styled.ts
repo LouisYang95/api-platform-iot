@@ -3,12 +3,20 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-color: #282c34;
     height: 100vh;
 
-    p {
+    h1 {
         color: white;
     }
 `
+
+export const PlayerWrapper = styled.div`
+
+
+
+
+
+`
+
