@@ -1,11 +1,13 @@
 import React from 'react';
+
 import { Wrapper, PlayerWrapper } from './styled';
 import PlayersScore from "../PlayersScore";
-interface GamePageProps {
+
+interface QuizPageProps {
 
 }
 
-const GamePage: React.FC<GamePageProps> = ({
+const QuizPage: React.FC<QuizPageProps> = ({
 
 }) => {
   return (
@@ -19,4 +21,4 @@ const GamePage: React.FC<GamePageProps> = ({
   );
 };
 
-export default GamePage;
+export default QuizPage;

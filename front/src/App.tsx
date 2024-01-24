@@ -1,14 +1,20 @@
 import React from 'react';
-import GamePageContainer from './components/GamePage/index';
+import GamePageContainer from './components/QuizPage/index';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePageContainer from './components/HomePage';
 
 import './App.css';
 
-function App() {
+const AppRouter: React.FC = () => {
   return (
-      <div className="App">
-        <GamePageContainer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePageContainer />} />
+        <Route path="/quiz" element={<GamePageContainer />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
-export default App;
+export default AppRouter;
+
