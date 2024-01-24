@@ -67,6 +67,7 @@ xbeeAPI.parser.on("data", function (frame) {
 
     console.log("ZIGBEE_IO_DATA_SAMPLE_RX")
     console.log(frame.analogSamples.AD0)
+    console.log(frame);
     //storage.registerSample(frame.remote64,frame.analogSamples.AD0 )
 
   } else if (C.FRAME_TYPE.REMOTE_COMMAND_RESPONSE === frame.type) {
