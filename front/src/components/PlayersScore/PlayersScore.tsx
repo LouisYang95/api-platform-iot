@@ -3,10 +3,11 @@ import { Wrapper, PlayerWrapper } from './styled';
 
 interface PlayersScoreProps {
   playerName: string;
-  playerScore: number;
+  remote64: any;
 }
 
-const PlayersScore: React.FC<PlayersScoreProps> = ({ playerName, playerScore }) => {
+const PlayersScore: React.FC<PlayersScoreProps> = ({ playerName, remote64 }) => {
+    let playerScore = 0;
   return (
     <Wrapper>
       <PlayerWrapper>
