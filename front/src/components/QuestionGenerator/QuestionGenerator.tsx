@@ -31,7 +31,7 @@ const QuestionGenerator: React.FC = () => {
     const onStartQuiz = () => {
         setTimerStarted(true);
         setQuizStart(true);
-        setTimeRemaining(5);
+        setTimeRemaining(30);
     };
 
     const isRedText = timeRemaining < 10;
