@@ -9,9 +9,7 @@ import {
     ButtonWrapper,
     ButtonWrapper1,
 } from "./styled";
-import { Client } from "mqtt/*";
 import mqtt from "mqtt";
-import { parse } from "path";
 
 interface Question {
     category: string;
@@ -20,34 +18,24 @@ interface Question {
     correctAnswer: string;
 }
 
-const QuestionGenerator: React.FC = () => {
+interface PlayersScoreProps {
+    client: mqtt.MqttClient;
+}
+
+const QuestionGenerator: React.FC<PlayersScoreProps> = ({client}) => {
     const [currentQuestion, setCurrentQuestion] = useState<Question | null>(
         null
     );
-    const [correctAnswerClass, setCorrectAnswerClass] = useState("");
     const [showAnswer, setShowAnswer] = useState(false);
     const [quizStart, setQuizStart] = useState(false);
+    const [isBuzzed, setIsBuzzed] = useState(false);
+    const [userBuzzed, setUserBuzzed] = useState("");
 
-    const [timeRemaining, setTimeRemaining] = useState(10);
+    const [timeRemaining, setTimeRemaining] = useState(30);
     const [timerStarted, setTimerStarted] = useState(false);
 
-    const client = mqtt.connect('wss://c5af997b76494b6dbb05fa0f4423e801.s2.eu.hivemq.cloud/mqtt', {
-        port: 8884,
-        username: 'CodingFactory',
-        password: 'CodingFactory95',
-    });
 
     const isRedText = timeRemaining < 10;
-    useEffect(() => {
-        if (timeRemaining === 0){
-            console.log('?')
-            client.subscribe("timerXbeeQuizz", (err) => {
-                if (!err) {
-                    client.publish("timerXbeeQuizz", "NoMoreTime");
-                }
-            });
-        }
-    }, [timeRemaining]);
 
     useEffect(() => {
         let intervalId: NodeJS.Timeout;
@@ -61,8 +49,14 @@ const QuestionGenerator: React.FC = () => {
             console.log(timeRemaining);
         }
 
-        if (timeRemaining == 0) {
+        if (timeRemaining === 0) {
             setShowAnswer(true);
+
+            client.subscribe("timerXbeeQuizz", (err) => {
+                if (!err) {
+                    client.publish("timerXbeeQuizz", "NoMoreTime");
+                }
+            });
         }
 
         return () => clearInterval(intervalId);
@@ -72,12 +66,46 @@ const QuestionGenerator: React.FC = () => {
         if (!err){
             client.on("message", function(topic, message){
                 if(topic === "participationXbeeQuizz"){
+                    console.log('participation')
                     setTimerStarted(false);
+                    setIsBuzzed(true);
+                    setUserBuzzed(findPlayerByRemote64(message.toString()));
                 }
             })
         }
     })
 
+
+    const findPlayerByRemote64 = (remote64 : any) => {
+        const players = JSON.parse(localStorage.getItem('players') || '[]');
+        return players.find((player: { remote64: any; }) => player.remote64 === remote64);
+    };
+
+    const handleAnswerClick = (answer: string) => {
+        if (!isBuzzed) {
+            console.log("Pas encore autorisé à répondre.");
+            return;
+        }
+        if (answer === currentQuestion?.correctAnswer) {
+            console.log("Bonne réponse !");
+
+            alert("Bonne réponse !");
+            handleNextQuestion();
+        }
+        console.log(`Réponse choisie: ${answer}`);
+
+    };
+
+    // const increasePlayerScore = (playerId: string) => {
+    //     let players = JSON.parse(localStorage.getItem('players') || '[]');
+    //     let playerIndex = players.findIndex((p: any) => p.remote64 === playerId);
+    //
+    //     if (playerIndex !== -1) {
+    //         players[playerIndex].score += 1;
+    //         localStorage.setItem('players', JSON.stringify(players));
+    //     }
+    //
+    // };
 
     const getRandomQuestion = () => {
         const randomIndex = Math.floor(Math.random() * questionsData.length);
@@ -93,7 +121,7 @@ const QuestionGenerator: React.FC = () => {
     const handleNextQuestion = () => {
         getRandomQuestion();
         setTimerStarted(true);
-        setTimeRemaining(10);
+        setTimeRemaining(30);
 
         if (client) {
             client.subscribe("partieXbeeQuizz", (err) => {
@@ -107,11 +135,12 @@ const QuestionGenerator: React.FC = () => {
     const onStartQuiz = () => {
         setTimerStarted(true);
         setQuizStart(true);
-        setTimeRemaining(10);
+        setTimeRemaining(30);
 
         if (client) {
             client.subscribe("partieXbeeQuizz", (err) => {
                 if (!err) {
+                    console.log('start')
                     client.publish("partieXbeeQuizz", "Start");
                 }
             })
@@ -141,16 +170,15 @@ const QuestionGenerator: React.FC = () => {
                                         <>
                                             {currentQuestion.options.map(
                                                 (option, index) => (
-                                                    <button>
-                                                        <div
+                                                    <ButtonWrapper
                                                         key={index}
-                                                        className={`answer${
-                                                            index + 1
-                                                        }`}
+                                                        className={!isBuzzed ? "buttonDisabled" : ""}
+                                                        onClick={() => handleAnswerClick(option)}
                                                     >
-                                                        <p>{option}</p>
-                                                    </div>
-                                                    </button>
+                                                        <div className={`answer${index + 1}`}>
+                                                            <p>{option}</p>
+                                                        </div>
+                                                    </ButtonWrapper>
                                                 )
                                             )}
                                         </>

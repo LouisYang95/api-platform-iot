@@ -14,6 +14,11 @@ export const Wrapper = styled.div`
     background-color: #f8f8f8;
   }
 
+    .buttonDisabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
   .question {
     font-size: 20px;
     font-weight: bold;
@@ -151,3 +156,5 @@ export const ButtonWrapper1 = styled.button`
         background-color: #0056b3;
     }
 `
+
+

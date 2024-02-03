@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Wrapper } from './styled';
-import { useNavigate } from 'react-router-dom';
 import PlayersScore from './PlayersScore';
 import mqtt from 'mqtt';
 
@@ -13,61 +12,53 @@ const PlayersScoreContainer: React.FC = () => {
     }])*/
     let listOfPlayers : any[] = []
     const numberOfPlayers = 4
-    const mqttServerUrl = 'mqtt://c5af997b76494b6dbb05fa0f4423e801.s2.eu.hivemq.cloud';
-    const topic = 'playerXbeeQuiz';
+    const mqttServerUrl = 'c9bb0502a71f464dadb7246274f124e0.s1.eu.hivemq.cloud';
+    const topics = ["partieXbeeQuizz", "timerXbeeQuizz", "participationXbeeQuizz", "playerXbeeQuizz"]
 
     useEffect(() => {
 
-        const client = mqtt.connect('wss://c5af997b76494b6dbb05fa0f4423e801.s2.eu.hivemq.cloud/mqtt', {
+        const client = mqtt.connect('wss://c9bb0502a71f464dadb7246274f124e0.s1.eu.hivemq.cloud/mqtt', {
             port: 8884,
             username: 'CodingFactory',
             password: 'CodingFactory95',
         });
 
         client.on('connect', () => {
-            console.log('Connected to MQTT broker');
-
-            client.subscribe(topic, (err) => {
+            client.subscribe(topics, (err) => {
                 if (!err) {
                   console.log('Subscribed to topic');
                 }
             });
 
-            const message = "test";
         });
 
         client.on('error', (err) => {
             console.error('MQTT Connection Error:', err);
         });
 
+        client.on("message", function(topic, message){
+            if (topic === "playerXbeeQuizz") {
+                let player = JSON.parse(message.toString());
 
-        const playerData = Array.from({ length: numberOfPlayers }, (_, index) => ({
-          playerName: `Player ${index + 1}`,
-          playerScore: 0,
-        }));
+                const existingPlayerIndex = listOfPlayers.findIndex((p) => p.remote64 === player.remote64);
 
+                if (existingPlayerIndex !== -1) {
+                    listOfPlayers[existingPlayerIndex] = {
+                        ...listOfPlayers[existingPlayerIndex],
+                        name: player.name,
+                        score: player.score !== undefined ? player.score : listOfPlayers[existingPlayerIndex].score
+                    };
+                } else {
+                    listOfPlayers.push({
+                        ...player,
+                        score: player.score !== undefined ? player.score : 0
+                    });
+                }
 
-        client.subscribe("playerXbeeQuizz", (err) => {
-            if (!err){
-                client.on("message", function(topic, message){
-                    if (topic === "playerXbeeQuizz") {
-                        console.log(JSON.parse(message.toString()));
-                        let player = JSON.parse(message.toString());
-
-                        const existingPlayer = listOfPlayers.find((p) => p.remote64 === player.remote64);
-
-                        if (existingPlayer) {
-                            existingPlayer.name = player.name;
-                            existingPlayer.score = player.score;
-                        } else {
-                            listOfPlayers.push(player);
-                        }
-
-                        setPlayers([...listOfPlayers]);
-                    }
-                })
+                setPlayers([...listOfPlayers]);
+                localStorage.setItem('players', JSON.stringify([...listOfPlayers]));
             }
-        })
+        });
 
     }, [mqttServerUrl, numberOfPlayers]);
 
@@ -78,7 +69,6 @@ const PlayersScoreContainer: React.FC = () => {
             key={index}
           playerName={player.name}
           remote64={player.remote64}
-         // playerScore={player.score}
         />
       ))}
     </Wrapper>

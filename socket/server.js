@@ -145,26 +145,14 @@ client.subscribe(topics, (err) => {
 
 xbeeAPI.parser.on("data", function (frame) {
   let buzzerOn = true;
-  //on new device is joined, register it
-
-  //on packet received, dispatch event
-  //let dataReceived = String.fromCharCode.apply(null, frame.data);
   if (C.FRAME_TYPE.ZIGBEE_RECEIVE_PACKET === frame.type) {
     console.log("C.FRAME_TYPE.ZIGBEE_RECEIVE_PACKET");
-    // let dataReceived = String.fromCharCode.apply(null, frame.data);
-    // console.log(">> ZIGBEE_RECEIVE_PACKET >", dataReceived);
-
   }
 
   if (C.FRAME_TYPE.NODE_IDENTIFICATION === frame.type) {
-    // let dataReceived = String.fromCharCode.apply(null, frame.nodeIdentifier);
     console.log("NODE_IDENTIFICATION");
-    //storage.registerSensor(frame.remote64)
 
   } else if (C.FRAME_TYPE.ZIGBEE_IO_DATA_SAMPLE_RX === frame.type) {
-    //
-    // console.log(frame)
-    // console.log(">> ZIGBEE_IO_DATA_SAMPLE_RX >", frame.remote64, frame.digitalSamples.DIO0)
     if (frame.digitalSamples.DIO0 === 0 && frame.digitalSamples.DIO1 === 1 && buzzerOn) {
       client.subscribe("participationXbeeQuizz", (err) => {
         if (!err) {
@@ -192,37 +180,23 @@ xbeeAPI.parser.on("data", function (frame) {
           buzzerOn = false;
         }
       })
-
-
     }
-
-    //storage.registerSample(frame.remote64,frame.analogSamples.AD0 )
-
   } else if (C.FRAME_TYPE.REMOTE_COMMAND_RESPONSE === frame.type) {
-    // console.log("REMOTE_COMMAND_RESPONSE")
-    // console.log(frame)
     let dataReceived = String.fromCharCode.apply(null, frame.commandData)
-    // console.log(dataReceived)
     let userInformation = {
       name: dataReceived,
       remote64: frame.remote64
     }
-    // console.log(userInformation);
 
     client.subscribe("playerXbeeQuizz", (err) => {
       if (!err && dataReceived) {
-        // console.log(">> ZIGBEE_RECEIVE_PACKET client mqtt >", JSON.stringify(userInformation));
         client.publish("playerXbeeQuizz", JSON.stringify(userInformation));
       }
     })
   } else if (C.FRAME_TYPE.JOIN_NOTIFICATION_STATUS){
     console.log("JOIN_NOTIFICATION_STATUS")
-    // console.log(frame)
   }else {
     console.log("AT_COMMAND_RESPONSE")
-    // console.debug(frame)
-    // let dataReceived = String.fromCharCode.apply(null, frame.commandData)
-    // console.log(dataReceived);
   }
 
 });

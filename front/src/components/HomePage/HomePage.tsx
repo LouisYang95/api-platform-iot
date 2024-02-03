@@ -6,12 +6,6 @@ import mqtt from 'mqtt';
 // playerXbeeQuizz
 interface GamePageProps {
 }
-const client = mqtt.connect('wss://c5af997b76494b6dbb05fa0f4423e801.s2.eu.hivemq.cloud/mqtt', {
-    port: 8884,
-    username: 'CodingFactory',
-    password: 'CodingFactory95',
-});
-
 const HomePage: React.FC<GamePageProps> = () => {
 
   return (
