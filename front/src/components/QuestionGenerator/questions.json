@@ -1,0 +1,255 @@
+[
+  {
+    "category": "Culture générale",
+    "question": "Quelle est la capitale de la France ?",
+    "options": ["Berlin", "Paris", "Londres", "Madrid"],
+    "correctAnswer": "Paris"
+  },
+  {
+    "category": "Films",
+    "question": "Quel acteur a joué le rôle de Tony Stark dans Iron Man ?",
+    "options": ["Chris Hemsworth", "Chris Evans", "Robert Downey Jr.", "Mark Ruffalo"],
+    "correctAnswer": "Robert Downey Jr."
+  },
+  {
+    "category": "Séries",
+    "question": "Quelle série met en scène des marcheurs blancs ?",
+    "options": ["Breaking Bad", "The Walking Dead", "Stranger Things", "Game of Thrones"],
+    "correctAnswer": "Game of Thrones"
+  },
+   {
+    "category": "Culture générale",
+    "question": "Quelle est la capitale du Japon ?",
+    "options": ["Beijing", "Seoul", "Tokyo", "Bangkok"],
+    "correctAnswer": "Tokyo"
+  },
+  {
+    "category": "Films",
+    "question": "Quel réalisateur a dirigé le film 'Inception' ?",
+    "options": ["Christopher Nolan", "Steven Spielberg", "Quentin Tarantino", "James Cameron"],
+    "correctAnswer": "Christopher Nolan"
+  },
+  {
+    "category": "Séries",
+    "question": "Dans quelle série un professeur de chimie devient-il un fabricant de méthamphétamine ?",
+    "options": ["Breaking Bad", "Stranger Things", "The Sopranos", "The Wire"],
+    "correctAnswer": "Breaking Bad"
+  },
+  {
+    "category": "Histoire",
+    "question": "En quelle année a eu lieu la Révolution française ?",
+    "options": ["1776", "1789", "1804", "1832"],
+    "correctAnswer": "1789"
+  },
+  {
+    "category": "Musique",
+    "question": "Qui est surnommé le 'Roi de la Pop' ?",
+    "options": ["Elvis Presley", "Michael Jackson", "Prince", "David Bowie"],
+    "correctAnswer": "Michael Jackson"
+  },
+  {
+    "category": "Science",
+    "question": "Quel est l'élément chimique avec le symbole 'O' ?",
+    "options": ["Oxygène", "Or", "Azote", "Argent"],
+    "correctAnswer": "Oxygène"
+  },
+  {
+    "category": "Géographie",
+    "question": "Quel est le plus grand océan du monde ?",
+    "options": ["Océan Atlantique", "Océan Indien", "Océan Arctique", "Océan Pacifique"],
+    "correctAnswer": "Océan Pacifique"
+  },{
+    "category": "Technologie",
+    "question": "Qui a cofondé Microsoft avec Bill Gates ?",
+    "options": ["Steve Jobs", "Paul Allen", "Elon Musk", "Mark Zuckerberg"],
+    "correctAnswer": "Paul Allen"
+  },
+  {
+    "category": "Cinéma",
+    "question": "Quel film a remporté l'Oscar du meilleur film en 1994 ?",
+    "options": ["Titanic", "Forrest Gump", "Pulp Fiction", "Le Roi Lion"],
+    "correctAnswer": "Forrest Gump"
+  },
+  {
+    "category": "Littérature",
+    "question": "Qui est l'auteur de '1984' ?",
+    "options": ["George Orwell", "Aldous Huxley", "Ray Bradbury", "J.K. Rowling"],
+    "correctAnswer": "George Orwell"
+  },
+  {
+    "category": "Sports",
+    "question": "Dans quel sport Michael Jordan a-t-il excellé ?",
+    "options": ["Football", "Basketball", "Tennis", "Golf"],
+    "correctAnswer": "Basketball"
+  },
+  {
+    "category": "Science",
+    "question": "Quel scientifique a formulé la théorie de la relativité ?",
+    "options": ["Isaac Newton", "Galileo Galilei", "Albert Einstein", "Stephen Hawking"],
+    "correctAnswer": "Albert Einstein"
+  },
+  {
+    "category": "Musique",
+    "question": "Quel groupe a enregistré l'album 'The Dark Side of the Moon' ?",
+    "options": ["The Rolling Stones", "Led Zeppelin", "Pink Floyd", "The Beatles"],
+    "correctAnswer": "Pink Floyd"
+  },
+  {
+    "category": "Gastronomie",
+    "question": "Quel plat est considéré comme la spécialité de l'Italie ?",
+    "options": ["Sushi", "Tacos", "Pizza", "Curry"],
+    "correctAnswer": "Pizza"
+  },
+  {
+    "category": "Histoire",
+    "question": "Quel événement a marqué le début de la Première Guerre mondiale en 1914 ?",
+    "options": ["L'attentat de Sarajevo", "La bataille de Stalingrad", "Le traité de Versailles", "La révolution russe"],
+    "correctAnswer": "L'attentat de Sarajevo"
+  },
+  {
+    "category": "Inventions",
+    "question": "Qui a inventé la première ampoule électrique ?",
+    "options": ["Thomas Edison", "Nikola Tesla", "Alexander Graham Bell", "Marie Curie"],
+    "correctAnswer": "Thomas Edison"
+  },{
+    "category": "Manga",
+    "question": "Qui est l'auteur du manga 'One Piece' ?",
+    "options": ["Masashi Kishimoto", "Eiichiro Oda", "Akira Toriyama", "Hiro Mashima"],
+    "correctAnswer": "Eiichiro Oda"
+  },
+  {
+    "category": "Manga",
+    "question": "Quel est le nom du personnage principal dans 'Naruto' ?",
+    "options": ["Luffy", "Goku", "Naruto Uzumaki", "Ichigo Kurosaki"],
+    "correctAnswer": "Naruto Uzumaki"
+  },
+  {
+    "category": "Manga",
+    "question": "Quel manga a pour thème principal le basketball et suit les aventures de Kuroko Tetsuya ?",
+    "options": ["Haikyuu!!", "Slam Dunk", "Kuroko's Basketball", "My Hero Academia"],
+    "correctAnswer": "Kuroko's Basketball"
+  },
+  {
+    "category": "Manga",
+    "question": "Quelle série de manga a été écrite et illustrée par Hajime Isayama ?",
+    "options": ["Demon Slayer", "Attack on Titan", "One Punch Man", "Death Note"],
+    "correctAnswer": "Attack on Titan"
+  },
+  {
+    "category": "Manga",
+    "question": "Quel est le nom du shinigami principal dans 'Death Note' ?",
+    "options": ["Ryuk", "Sebastian", "Guts", "Kakashi"],
+    "correctAnswer": "Ryuk"
+  },
+  {
+    "category": "Manga",
+    "question": "Quelle série de manga suit les aventures de Monkey D. Luffy à la recherche du One Piece ?",
+    "options": ["Bleach", "Naruto", "Dragon Ball", "One Piece"],
+    "correctAnswer": "One Piece"
+  },{
+    "category": "Manga",
+    "question": "Dans le manga 'My Hero Academia', quel personnage principal n'a pas de super-pouvoirs au début de l'histoire ?",
+    "options": ["Izuku Midoriya", "Katsuki Bakugo", "Ochaco Uraraka", "Shoto Todoroki"],
+    "correctAnswer": "Izuku Midoriya"
+  },
+  {
+    "category": "Manga",
+    "question": "Quel est le nom du mystérieux détective lycéen dans 'Detective Conan' ?",
+    "options": ["L", "Conan Edogawa", "Light Yagami", "Shinichi Kudo"],
+    "correctAnswer": "Shinichi Kudo"
+  },
+  {
+    "category": "Manga",
+    "question": "Quelle série de manga suit les aventures de Gon Freecss à la recherche de son père dans le monde des Hunters ?",
+    "options": ["Hunter x Hunter", "Yu Yu Hakusho", "Naruto", "Bleach"],
+    "correctAnswer": "Hunter x Hunter"
+  },
+  {
+    "category": "Manga",
+    "question": "Quel manga met en scène une guilde de chasseurs de monstres dirigée par le protagoniste, Geralt of Rivia ?",
+    "options": ["Berserk", "The Witcher", "Claymore", "Fullmetal Alchemist"],
+    "correctAnswer": "The Witcher"
+  },
+  {
+    "category": "Manga",
+    "question": "Dans 'Demon Slayer', quel est le nom du personnage principal qui cherche à venger sa famille tuée par des démons ?",
+    "options": ["Inosuke Hashibira", "Zenitsu Agatsuma", "Tanjiro Kamado", "Nezuko Kamado"],
+    "correctAnswer": "Tanjiro Kamado"
+  },
+  {
+    "category": "Manga",
+    "question": "Quel manga raconte l'histoire d'Eren Yeager et de ses amis qui luttent contre des titans mangeurs d'humains ?",
+    "options": ["Black Clover", "One Punch Man", "Attack on Titan", "Demon Slayer"],
+    "correctAnswer": "Attack on Titan"
+  },{
+    "category": "Rap Français",
+    "question": "Quel rappeur français est surnommé 'L'empereur du sale' ?",
+    "options": ["Kaaris", "Nekfeu", "Booba", "Soprano"],
+    "correctAnswer": "Kaaris"
+  },
+  {
+    "category": "Rap Français",
+    "question": "Quel est le nom du groupe de rap formé par Nekfeu, Sneazzy, Alpha Wann et 1995 ?",
+    "options": ["IAM", "L'Entourage", "Sexion d'Assaut", "La Rumeur"],
+    "correctAnswer": "L'Entourage"
+  },
+  {
+    "category": "Rap Français",
+    "question": "Quel rappeur français est également connu sous le nom de 'B2O' ?",
+    "options": ["Kaaris", "Nekfeu", "Booba", "Soprano"],
+    "correctAnswer": "Booba"
+  },
+  {
+    "category": "Rap Français",
+    "question": "Quel est le premier album studio de Maître Gims en solo, sorti en 2013 ?",
+    "options": ["Subliminal", "Ceinture noire", "Mon cœur avait raison", "À contre cœur"],
+    "correctAnswer": "Subliminal"
+  },
+  {
+    "category": "Rap Français",
+    "question": "Quel rappeur français est également acteur et a joué dans le film 'Les Misérables' en 2019 ?",
+    "options": ["Oxmo Puccino", "Nekfeu", "Kaaris", "Lomepal"],
+    "correctAnswer": "Lomepal"
+  },
+  {
+    "category": "Rap Français",
+    "question": "Quel duo de rappeurs français est composé de Ademo et N.O.S. ?",
+    "options": ["PNL", "IAM", "Suprême NTM", "1995"],
+    "correctAnswer": "PNL"
+  },{
+    "category": "Ninho",
+    "question": "Quel est le vrai nom de Ninho ?",
+    "options": ["William Nzobazola", "Houssem Ben Zakouk", "Aymen Lazaar", "Malik Benthala"],
+    "correctAnswer": "William Nzobazola"
+  },
+  {
+    "category": "Ninho",
+    "question": "En quelle année Ninho a-t-il sorti son premier album studio solo ?",
+    "options": ["2015", "2017", "2018", "2019"],
+    "correctAnswer": "2017"
+  },
+  {
+    "category": "Ninho",
+    "question": "Quel est le titre de la première mixtape de Ninho, sortie en 2016 ?",
+    "options": ["Comme prévu", "M.I.L.S", "Destin", "Ipséité"],
+    "correctAnswer": "M.I.L.S"
+  },
+  {
+    "category": "Ninho",
+    "question": "Quel est le nom du label auquel Ninho est affilié ?",
+    "options": ["92i", "Talent Factory", "Rec. 118", "Universal Music"],
+    "correctAnswer": "Rec. 118"
+  },
+  {
+    "category": "Ninho",
+    "question": "Dans quelle ville est né Ninho ?",
+    "options": ["Paris", "Lyon", "Marseille", "Nanterre"],
+    "correctAnswer": "Paris"
+  },
+  {
+    "category": "Ninho",
+    "question": "Quel est le titre de l'album de Ninho sorti en 2020 ?",
+    "options": ["Comme prévu", "Destin", "M.I.L.S 3", "L'ancien"],
+    "correctAnswer": "Destin"
+  }
+]
